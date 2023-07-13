@@ -17,10 +17,10 @@ app.use(cors())
 app.use("/users", userRouter)
 app.use("/employee", employeeRouter)
 
-app.listen(process.env.PORT, async ()=>{
+app.listen(7600, async ()=>{
     try {
         await connection;
-        console.log(`connection established with ${process.env.PORT}`)
+        console.log(`connection established with 7600`)
     } catch (error) {
         console.log(error)
     }
