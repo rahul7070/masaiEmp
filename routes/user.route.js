@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const BlackModel = require("../model/blacklist.model");
 
 userRouter.post("/register", async (req, res) => {
-    // console.log(req.body)
+    console.log(req.body)
 
     const { email, password } = req.body
     try {
