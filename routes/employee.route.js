@@ -27,8 +27,10 @@ employeeRouter.get("/", auth, async (req, res) => {
         if(department) query.department = department;
         if(search) query.firstname= {$regex:search, $option:'i'};
         
+        let employee = await EmployeeModel.find();
+        let count = employee.length;
         let emp = await EmployeeModel.find(query).sort(sortBy=="salary"?{salary:1}:{}).skip(((page-1)*5)).limit(5)
-        res.send({emp})
+        res.send({emp, count})
     } catch (error) {
         res.status(401).send({ "msg": "Some error occourd" })
     }
